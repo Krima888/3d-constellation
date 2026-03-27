@@ -2,119 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>✨ KRIMA'S CONSTELLATION | Cosmic Experience ✨</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>✨ KRIMA'S CONSTELLATION ✨</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         body {
-            margin: 0;
+            background: radial-gradient(circle at center, #010118 0%, #000000 100%);
             overflow: hidden;
-            font-family: 'Orbitron', 'Segoe UI', 'Poppins', monospace;
-            background-color: black;
+            font-family: 'Segoe UI', 'Poppins', monospace;
+            height: 100vh;
+            width: 100vw;
+            touch-action: none;
         }
         
-        /* Sci-fi Glow Panel */
-        .info-panel {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 500px;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 18px 25px;
-            text-align: center;
-            z-index: 100;
-            border: 1px solid rgba(0, 255, 255, 0.5);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-            font-family: monospace;
-            pointer-events: none;
-        }
-        
-        .info-panel h2 {
-            margin: 0;
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: #0ff;
-            text-shadow: 0 0 8px #0ff;
-        }
-        
-        .info-panel p {
-            margin: 8px 0 0;
-            font-size: 11px;
-            color: #ccc;
-            letter-spacing: 1px;
-        }
-        
+        /* Mobile-friendly message panel */
         .star-message {
             position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 20px;
+            left: 10px;
+            right: 10px;
             background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            padding: 15px 25px;
-            border-radius: 50px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 14px 18px;
+            border-radius: 20px;
             color: #0ff;
             font-family: monospace;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             text-align: center;
-            z-index: 100;
-            border: 1px solid rgba(0, 255, 255, 0.6);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
-            letter-spacing: 1px;
-            white-space: nowrap;
+            z-index: 200;
+            border: 1px solid rgba(0, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            letter-spacing: 0.5px;
             pointer-events: none;
-            transition: 0.3s;
-            max-width: 80%;
-            white-space: normal;
-            word-break: break-word;
+            transition: 0.2s;
         }
         
-        .controls-hint {
+        .title {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(0, 255, 255, 0.7);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-family: monospace;
+            z-index: 200;
+            pointer-events: none;
+            text-shadow: 0 0 5px #0ff;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
             background: rgba(0,0,0,0.5);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 8px;
             color: #0ff;
             font-family: monospace;
-            z-index: 100;
+            z-index: 200;
             pointer-events: none;
-            letter-spacing: 1px;
         }
         
         .brand {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 12px;
+            left: 12px;
             color: rgba(0, 255, 255, 0.4);
-            font-size: 10px;
+            font-size: 8px;
             font-family: monospace;
-            z-index: 100;
+            z-index: 200;
             pointer-events: none;
-            letter-spacing: 2px;
         }
         
-        @media (max-width: 768px) {
-            .star-message { font-size: 10px; padding: 10px 18px; top: 15px; }
-            .info-panel { padding: 12px 18px; bottom: 15px; }
-            .info-panel h2 { font-size: 10px; }
-            .controls-hint { font-size: 8px; bottom: 12px; right: 12px; }
+        @media (min-width: 768px) {
+            .star-message { font-size: 14px; padding: 16px 24px; max-width: 500px; left: 50%; transform: translateX(-50%); right: auto; bottom: 25px; }
+            .title { font-size: 14px; top: 20px; }
+            .controls { font-size: 10px; }
+            .brand { font-size: 10px; }
         }
     </style>
 </head>
 <body>
-    <div class="star-message" id="starMessage">✨ TOUCH THE STARS ✨</div>
-    <div class="info-panel">
-        <h2>✦ KRIMA'S CONSTELLATION MAP ✦</h2>
-        <p>✦ CLICK ANY STAR | DRAG TO EXPLORE | SCROLL TO ZOOM ✦</p>
-    </div>
-    <div class="controls-hint">🖱️ DRAG • 🔍 ZOOM</div>
+    <div class="title">✦ KRIMA'S CONSTELLATION ✦</div>
+    <div class="star-message" id="starMessage">✨ TOUCH A STAR ✨</div>
+    <div class="controls">🖱️ DRAG • ZOOM</div>
     <div class="brand">✦ KRIMA.COSMIC ✦</div>
 
     <script type="importmap">
@@ -128,236 +110,169 @@
     <script type="module">
         import * as THREE from 'three';
 
-        // --- Setup Scene with Cosmic Colors ---
+        // Optimized for mobile - fewer particles, simpler effects
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x010118);
-        scene.fog = new THREE.FogExp2(0x010118, 0.0025);
-
-        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.set(0, 3, 14);
+        scene.background = new THREE.Color(0x020218);
+        
+        // Mobile-friendly camera
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.3, 50);
+        camera.position.set(0, 1.5, 12);
         camera.lookAt(0, 0, 0);
-
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        
+        const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         document.body.appendChild(renderer.domElement);
-
-        // --- Star Data with Mystical Messages ---
+        
+        // --- Stars Data with cool messages ---
         const starsData = [
-            { name: "⚡ POLARIS", message: "The North Star | Your path is illuminated. Trust where you're going.", color: 0xffaa88, size: 0.38, pos: [-2.2, 2, -3.5], glow: 0xffaa66 },
-            { name: "💎 SIRIUS", message: "The Brightest Star | Your light cannot be dimmed. Shine without apology.", color: 0xffdd99, size: 0.42, pos: [2.5, -1.2, -4.2], glow: 0xffcc88 },
-            { name: "🌀 VEGA", message: "Star of Inspiration | Creativity flows through you. Make something beautiful.", color: 0x99ccff, size: 0.35, pos: [-1, -2, -5], glow: 0x88aaff },
-            { name: "🌙 ARCTURUS", message: "The Guardian | Protection surrounds you. You are safe in this moment.", color: 0xffaa77, size: 0.4, pos: [2, 2.2, -2.8], glow: 0xffaa66 },
-            { name: "✨ ALTAIR", message: "The Soaring Eagle | Rise above. Your time to fly is now.", color: 0xfff5aa, size: 0.32, pos: [-2.5, -0.8, -4.2], glow: 0xffdd88 },
-            { name: "⚡ RIGEL", message: "Blue Giant | Power and strength. Stand tall in your truth.", color: 0xaaffff, size: 0.39, pos: [1.8, -2, -3.8], glow: 0x88ffff },
-            { name: "🔥 BETELGEUSE", message: "Red Supergiant | Passion ignites. Follow what excites you.", color: 0xff8866, size: 0.44, pos: [-0.5, 2.5, -3.2], glow: 0xff6644 },
-            { name: "💎 SPICA", message: "The Harvest | Your efforts will bloom. Keep going.", color: 0xccffff, size: 0.36, pos: [3, 1, -4.5], glow: 0xaaffff },
-            { name: "🌌 ANTARES", message: "Heart of the Scorpion | Transformation awaits. Embrace change fearlessly.", color: 0xff6666, size: 0.41, pos: [-3, -1.5, -2.5], glow: 0xff5555 },
-            { name: "⭐ DENEB", message: "Tail of the Swan | Your creativity takes flight. Express yourself.", color: 0xfff5dd, size: 0.37, pos: [0, 2.8, -5], glow: 0xffdd99 },
-            { name: "🔮 ALDEBARAN", message: "The Follower | Patience brings rewards. Stay the course.", color: 0xffaa99, size: 0.39, pos: [2.8, -2.2, -4], glow: 0xffaa77 },
-            { name: "👑 REGULUS", message: "Heart of the Lion | Courage and leadership. You are a natural leader.", color: 0xffccaa, size: 0.38, pos: [-2, 1.2, -4.2], glow: 0xffaa77 },
-            { name: "✨ KRIMA", message: "✦ YOUR STAR ✦ The universe celebrates you. This moment is yours.", color: 0xff66cc, size: 0.48, pos: [0.5, -0.5, -3], glow: 0xff44aa }
+            { name: "⚡ POLARIS", msg: "Your path is illuminated. Trust your direction.", color: 0xffaa88, size: 0.32, x: -2, y: 1.8, z: -4 },
+            { name: "💎 SIRIUS", msg: "Shine without apology. Your light matters.", color: 0xffdd99, size: 0.35, x: 2.2, y: -1, z: -4.5 },
+            { name: "🌀 VEGA", msg: "Creativity flows through you. Make something beautiful.", color: 0x99ccff, size: 0.3, x: -1, y: -1.5, z: -5 },
+            { name: "🌙 ARCTURUS", msg: "Protection surrounds you. You are safe.", color: 0xffaa77, size: 0.33, x: 1.8, y: 1.8, z: -3.5 },
+            { name: "✨ ALTAIR", msg: "Rise above. Your time to fly is now.", color: 0xfff5aa, size: 0.28, x: -2.2, y: -0.5, z: -4.8 },
+            { name: "🔥 BETELGEUSE", msg: "Passion ignites. Follow what excites you.", color: 0xff8866, size: 0.38, x: -0.3, y: 2, z: -3.8 },
+            { name: "💎 SPICA", msg: "Your efforts will bloom. Keep going.", color: 0xccffff, size: 0.31, x: 2.5, y: 0.5, z: -5 },
+            { name: "🌌 ANTARES", msg: "Embrace change fearlessly. Transformation awaits.", color: 0xff6666, size: 0.36, x: -2.5, y: -1.2, z: -3.2 },
+            { name: "⭐ DENEB", msg: "Your creativity takes flight. Express yourself.", color: 0xfff5dd, size: 0.32, x: 0, y: 2.2, z: -5.5 },
+            { name: "👑 KRIMA", msg: "✦ YOUR STAR ✦ The universe celebrates you right now.", color: 0xff66cc, size: 0.42, x: 0.6, y: -0.3, z: -3.5 }
         ];
-
-        const stars = [];
+        
         const starMeshes = [];
-
-        // --- Create Stars with Glow Effects ---
-        starsData.forEach((star, idx) => {
-            // Core sphere
-            const geometry = new THREE.SphereGeometry(star.size, 64, 64);
+        
+        // Create stars with glow lights (optimized)
+        starsData.forEach((star, i) => {
+            const geometry = new THREE.SphereGeometry(star.size, 32, 32);
             const material = new THREE.MeshStandardMaterial({
                 color: star.color,
                 emissive: star.color,
-                emissiveIntensity: 0.45,
-                metalness: 0.9,
-                roughness: 0.15
+                emissiveIntensity: 0.4,
+                metalness: 0.7,
+                roughness: 0.3
             });
             const sphere = new THREE.Mesh(geometry, material);
-            sphere.position.set(star.pos[0], star.pos[1], star.pos[2]);
-            sphere.userData = {
-                name: star.name,
-                message: star.message,
-                color: star.color
-            };
+            sphere.position.set(star.x, star.y, star.z);
+            sphere.userData = { name: star.name, message: star.msg };
             scene.add(sphere);
             starMeshes.push(sphere);
             
-            // Glow halo (point light)
-            const glowLight = new THREE.PointLight(star.color, 0.7, 12);
-            glowLight.position.set(star.pos[0], star.pos[1], star.pos[2]);
-            scene.add(glowLight);
-            
-            stars.push({ mesh: sphere, light: glowLight, data: star });
+            // Add point light (optimized intensity)
+            const light = new THREE.PointLight(star.color, 0.5, 10);
+            light.position.set(star.x, star.y, star.z);
+            scene.add(light);
         });
-
-        // --- Particle Field (Thousands of Tiny Stars) ---
-        const particleCount = 4000;
-        const particleGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
         
+        // --- Reduced particle count for mobile (800 stars instead of 4000) ---
+        const particleCount = 800;
+        const particleGeo = new THREE.BufferGeometry();
+        const particlePos = new Float32Array(particleCount * 3);
         for (let i = 0; i < particleCount; i++) {
-            positions[i*3] = (Math.random() - 0.5) * 180;
-            positions[i*3+1] = (Math.random() - 0.5) * 100;
-            positions[i*3+2] = (Math.random() - 0.5) * 70 - 25;
-            
-            const colorChoice = Math.random();
-            if (colorChoice > 0.8) {
-                colors[i*3] = 0.8; colors[i*3+1] = 0.5; colors[i*3+2] = 0.9; // purple
-            } else if (colorChoice > 0.6) {
-                colors[i*3] = 0.5; colors[i*3+1] = 0.7; colors[i*3+2] = 1.0; // blue
-            } else {
-                colors[i*3] = 1.0; colors[i*3+1] = 1.0; colors[i*3+2] = 0.9; // white
-            }
+            particlePos[i*3] = (Math.random() - 0.5) * 120;
+            particlePos[i*3+1] = (Math.random() - 0.5) * 70;
+            particlePos[i*3+2] = (Math.random() - 0.5) * 50 - 15;
         }
-        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+        const particleMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.08, transparent: true, opacity: 0.6 });
+        const particles = new THREE.Points(particleGeo, particleMat);
+        scene.add(particles);
         
-        const particleMaterial = new THREE.PointsMaterial({ size: 0.08, vertexColors: true, transparent: true, opacity: 0.7 });
-        const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
-        scene.add(particleSystem);
-
-        // --- Nebula Clouds (Floating transparent spheres) ---
-        const nebulaMat = new THREE.MeshPhongMaterial({ color: 0x331166, emissive: 0x220044, transparent: true, opacity: 0.08 });
-        const nebulaCloud = new THREE.Mesh(new THREE.SphereGeometry(3.5, 32, 32), nebulaMat);
-        nebulaCloud.position.set(1, 1, -4);
-        scene.add(nebulaCloud);
-        
-        const nebulaCloud2 = new THREE.Mesh(new THREE.SphereGeometry(4, 32, 32), nebulaMat);
-        nebulaCloud2.position.set(-2, -1, -6);
-        scene.add(nebulaCloud2);
-
-        // --- Cosmic Ring (Energy Ring) ---
-        const ringGeo = new THREE.TorusGeometry(3.2, 0.06, 128, 300);
-        const ringMat = new THREE.MeshStandardMaterial({ color: 0x33aaff, emissive: 0x2288ff, emissiveIntensity: 0.5 });
+        // Simple ring (one ring only for performance)
+        const ringGeo = new THREE.TorusGeometry(2.8, 0.05, 64, 200);
+        const ringMat = new THREE.MeshStandardMaterial({ color: 0x33aaff, emissive: 0x2288ff, emissiveIntensity: 0.3 });
         const ring = new THREE.Mesh(ringGeo, ringMat);
-        ring.rotation.x = Math.PI / 2.5;
-        ring.rotation.z = Math.PI / 4;
+        ring.rotation.x = Math.PI / 2.2;
         scene.add(ring);
         
-        const ring2Geo = new THREE.TorusGeometry(3.8, 0.04, 128, 300);
-        const ring2Mat = new THREE.MeshStandardMaterial({ color: 0xff66aa, emissive: 0xff2288, emissiveIntensity: 0.4 });
-        const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-        ring2.rotation.x = Math.PI / 1.8;
-        ring2.rotation.z = -Math.PI / 6;
-        scene.add(ring2);
-
-        // --- Lighting (Atmosphere) ---
+        // Lighting
         const ambientLight = new THREE.AmbientLight(0x111122);
         scene.add(ambientLight);
-        
-        const backLight = new THREE.PointLight(0x4466ff, 0.5);
-        backLight.position.set(-2, 1, -5);
+        const backLight = new THREE.PointLight(0x4466ff, 0.4);
+        backLight.position.set(-1, 1, -4);
         scene.add(backLight);
         
-        const fillLight = new THREE.DirectionalLight(0xffaa88, 0.6);
-        fillLight.position.set(3, 4, 2);
-        scene.add(fillLight);
-        
-        const coreGlow = new THREE.PointLight(0xff88aa, 0.8);
-        coreGlow.position.set(0, 0, -2);
-        scene.add(coreGlow);
-
-        // --- Raycaster for Interaction ---
+        // Raycaster for touch/click
         const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2();
-        const messageDiv = document.getElementById('starMessage');
+        const pointer = new THREE.Vector2();
+        const msgDiv = document.getElementById('starMessage');
         
-        function onStarClick(event) {
-            mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-            mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+        function handleTap(event) {
+            const x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+            const y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+            pointer.set(x, y);
+            raycaster.setFromCamera(pointer, camera);
+            const hits = raycaster.intersectObjects(starMeshes);
             
-            raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(starMeshes);
-            
-            if (intersects.length > 0) {
-                const star = intersects[0].object;
+            if (hits.length > 0) {
+                const star = hits[0].object;
                 const data = star.userData;
-                messageDiv.innerHTML = `✦ ${data.name} ✦<br><span style="font-size: 10px;">${data.message}</span>`;
-                messageDiv.style.borderColor = '#ff66cc';
-                messageDiv.style.boxShadow = '0 0 30px rgba(255,102,204,0.5)';
+                msgDiv.innerHTML = `✦ ${data.name} ✦<br><span style="font-size: 10px;">${data.message}</span>`;
+                msgDiv.style.borderColor = '#ff66cc';
+                msgDiv.style.boxShadow = '0 0 20px rgba(255,102,204,0.4)';
                 
-                // Flash effect
-                star.material.emissiveIntensity = 1.0;
-                setTimeout(() => { star.material.emissiveIntensity = 0.45; }, 400);
+                star.material.emissiveIntensity = 0.9;
+                setTimeout(() => { star.material.emissiveIntensity = 0.4; }, 300);
                 
-                // Auto-reset message after 5 seconds
-                clearTimeout(window.msgTimeout);
-                window.msgTimeout = setTimeout(() => {
-                    messageDiv.innerHTML = '✨ TOUCH THE STARS ✨';
-                    messageDiv.style.borderColor = '#0ff';
-                    messageDiv.style.boxShadow = '0 0 25px rgba(0,255,255,0.3)';
-                }, 5000);
+                clearTimeout(window.msgTimer);
+                window.msgTimer = setTimeout(() => {
+                    msgDiv.innerHTML = '✨ TOUCH A STAR ✨';
+                    msgDiv.style.borderColor = '#0ff';
+                }, 4000);
             }
         }
         
-        function onHover(event) {
-            mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
-            mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
-            raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(starMeshes);
-            document.body.style.cursor = intersects.length > 0 ? 'pointer' : 'default';
+        function handleHover(event) {
+            const x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+            const y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+            pointer.set(x, y);
+            raycaster.setFromCamera(pointer, camera);
+            const hits = raycaster.intersectObjects(starMeshes);
             
-            if (intersects.length > 0) {
-                const star = intersects[0].object;
-                messageDiv.innerHTML = `✦ ${star.userData.name} ✦`;
-            } else if (!messageDiv.innerHTML.includes('TOUCH THE STARS') && !messageDiv.innerHTML.includes('✦')) {
-                messageDiv.innerHTML = '✨ TOUCH THE STARS ✨';
-                messageDiv.style.borderColor = '#0ff';
+            if (hits.length > 0 && !msgDiv.innerHTML.includes('✦')) {
+                msgDiv.innerHTML = `✦ ${hits[0].object.userData.name} ✦`;
+            } else if (hits.length === 0 && !msgDiv.innerHTML.includes('TOUCH A STAR') && !msgDiv.innerHTML.includes('✦')) {
+                msgDiv.innerHTML = '✨ TOUCH A STAR ✨';
+                msgDiv.style.borderColor = '#0ff';
             }
         }
         
-        window.addEventListener('click', onStarClick);
-        window.addEventListener('mousemove', onHover);
+        // Support both mouse and touch
+        window.addEventListener('click', handleTap);
+        window.addEventListener('mousemove', handleHover);
+        window.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            const fakeEvent = { clientX: touch.clientX, clientY: touch.clientY };
+            handleTap(fakeEvent);
+        });
         
-        // --- Animation Loop ---
+        // Animation
         let time = 0;
         
         function animate() {
             requestAnimationFrame(animate);
             time += 0.008;
             
-            // Rotate stars individually
             starMeshes.forEach((star, i) => {
-                star.rotation.y += 0.008;
+                star.rotation.y += 0.01;
                 star.rotation.x += 0.005;
             });
             
-            // Pulse lights
-            stars.forEach((star, idx) => {
-                const intensity = 0.5 + Math.sin(time * 2.5 + idx) * 0.3;
-                star.light.intensity = intensity;
-            });
-            coreGlow.intensity = 0.6 + Math.sin(time * 1.8) * 0.3;
-            
-            // Rotate rings
             ring.rotation.z += 0.003;
             ring.rotation.y += 0.002;
-            ring2.rotation.x += 0.002;
-            ring2.rotation.z -= 0.002;
-            
-            // Rotate particle field
-            particleSystem.rotation.y += 0.0005;
-            particleSystem.rotation.x += 0.0003;
-            
-            // Float nebulae
-            nebulaCloud.position.x = 1 + Math.sin(time * 0.2) * 0.1;
-            nebulaCloud2.position.y = -1 + Math.cos(time * 0.15) * 0.1;
+            particles.rotation.y += 0.0005;
             
             renderer.render(scene, camera);
         }
         
         animate();
         
-        // --- Handle Window Resize ---
+        // Handle resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
         
-        console.log('✨ Krima Constellation Active | Click stars for cosmic wisdom ✨');
+        console.log('✨ Mobile Optimized Constellation Active ✨');
     </script>
 </body>
 </html>
